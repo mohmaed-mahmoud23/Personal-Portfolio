@@ -1,0 +1,21 @@
+{
+  "Hero": {
+    "title": "Freelance Developer -",
+    "name": "Mohamed Mahmoud",
+    "role": "Next.js & MERN Stack Developer"
+  },
+  "Projects": {
+    "moreWork": "More work",
+    "fullStack": "Full-Stack Project"
+  },
+  "Contact": {
+    "title1": "Let's work",
+    "title2": "together",
+    "button": "Get in touch",
+    "copyright": "Copyright",
+    "copyrightText": "2026 © Mohamed Mahmoud",
+    "localTime": "Local Time",
+    "location": "Cairo, Egypt",
+    "socials": "socials"
+  }
+}
