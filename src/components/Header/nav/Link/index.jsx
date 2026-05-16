@@ -7,6 +7,16 @@ export default function Index({data, isActive, setSelectedIndicator}) {
   
     const { title, href, index} = data;
   
+    const handleClick = (e) => {
+      e.preventDefault();
+      const id = href.replace('#', '');
+      if (id && document.getElementById(id)) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+      } else if (!id) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+  
     return (
       <motion.div 
         className={styles.link} 
@@ -22,7 +32,7 @@ export default function Index({data, isActive, setSelectedIndicator}) {
           animate={isActive ? "open" : "closed"} 
           className={styles.indicator}>
         </motion.div>
-        <Link href={href}>{title}</Link>
+        <Link href={href} onClick={handleClick} scroll={false}>{title}</Link>
       </motion.div>
     )
 }

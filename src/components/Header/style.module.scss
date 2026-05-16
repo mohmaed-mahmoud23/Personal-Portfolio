@@ -147,3 +147,32 @@
     }
 }
 
+@media (max-width: 768px) {
+    .header {
+        padding: 15px !important;
+        
+        .logo {
+            .copyright {
+                display: none;
+            }
+            .name {
+                display: flex !important;
+                flex-direction: column;
+                margin-left: 0;
+                
+                .codeBy {
+                    font-size: 12px;
+                    position: static;
+                    transform: none;
+                }
+                .dennis {
+                    font-size: 14px;
+                    position: static;
+                    padding-left: 0;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+

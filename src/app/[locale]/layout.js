@@ -5,7 +5,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ThemeProvider } from '../../components/ThemeProvider';
 import { ThemeToggle } from '../../components/ThemeToggle';
-import { LanguageToggle } from '../../components/LanguageToggle';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,14 +17,13 @@ export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages();
   
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" suppressHydrationWarning>
       <body className={inter.className}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             <Header />
             {children}
             <ThemeToggle />
-            <LanguageToggle />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

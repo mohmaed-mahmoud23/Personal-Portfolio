@@ -2,21 +2,21 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;   // ✅ 100% avoids scrollbar overflow
+    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 99;
     background-color: var(--bg-color);
-    overflow: hidden; // ✅ hide any accidental overflow
+    overflow: hidden;
 
     svg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%; // remove extra 300px
+        height: 100%;
         path {
             fill: var(--bg-color);
         }
@@ -25,7 +25,7 @@
     p {
         display: flex;
         align-items: center;
-        color: white;
+        color: var(--text-color);
         font-size: 42px;
         position: absolute;
         z-index: 1;
@@ -34,7 +34,7 @@
             display: block;
             width: 10px;
             height: 10px;
-            background-color: white;
+            background-color: var(--accent);
             border-radius: 50%;
             margin-right: 10px;
         }

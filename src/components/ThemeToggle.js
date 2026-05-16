@@ -10,8 +10,11 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="fixed bottom-5 right-5 z-50 p-3 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center transition-all hover:scale-110"
-      style={{ backgroundColor: 'var(--text-color)', color: 'var(--bg-color)' }}
+      className="fixed bottom-5 right-5 z-50 p-3 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110"
+      style={{ 
+        backgroundColor: 'var(--accent)', 
+        color: theme === 'dark' ? '#111827' : '#f9fafb'
+      }}
     >
       {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
     </button>

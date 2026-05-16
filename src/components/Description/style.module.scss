@@ -1,7 +1,7 @@
 .description{
     padding-left: clamp(20px, 10vw, 200px);
     padding-right: clamp(20px, 10vw, 200px);
-    margin-top: clamp(50px, 10vw, 200px);
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     .body{
@@ -57,6 +57,19 @@
     .moreWork{
         padding: 20px;
         border-radius: 40px;
-        border: 1px solid grey;
+        border: 1px solid var(--muted);
+    }
+}
+
+@media (max-width: 768px) {
+    .description .body {
+        .button {
+            position: relative;
+            left: auto;
+            top: auto;
+            margin-top: 30px;
+            width: 120px;
+            height: 120px;
+        }
     }
 }

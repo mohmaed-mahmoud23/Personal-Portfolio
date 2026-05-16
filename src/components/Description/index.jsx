@@ -9,7 +9,7 @@ export default function index() {
     const description = useRef(null);
     const isInView = useInView(description)
     return (
-        <div ref={description} className={styles.description}>
+        <div ref={description} id="about" className={styles.description}>
             <div className={styles.body}>
                 <p>
                 {

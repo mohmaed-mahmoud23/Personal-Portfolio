@@ -50,4 +50,18 @@
       }
     }
   }
+
+@media (max-width: 768px) {
+    .landing {
+        .description {
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 18px;
+        }
+        .sliderContainer {
+            top: calc(100vh - 250px);
+        }
+    }
+}
   

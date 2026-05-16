@@ -2,39 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --radius: 0.5rem;
-    --text-color: #09090b; /* Deep crisp charcoal */
-    --bg-color: #fafafa; /* Minimalist off-white */
-    --secondary-bg: #ffffff; /* Pure white for elements */
-    --accent: #4f46e5; /* Strong elegant indigo */
+    --background: #f9fafb;
+    --surface: #e5e7eb;
+    --accent: #059669;
+    --text: #111827;
+    --muted: #6b7280;
+    
+    --bg-color: #f9fafb;
+    --text-color: #111827;
+    --secondary-bg: #e5e7eb;
+    --accent: #059669;
   }
  
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --text-color: #f4f4f5; /* Crisp off-white */
-    --bg-color: #000212; /* Linear's ultra-premium dark navy/black */
-    --secondary-bg: #18181b; /* Sleek zinc for elements */
-    --accent: #5e6ad2; /* Modern vibrant blurple */
+    --background: #111827;
+    --surface: #1f2937;
+    --accent: #10b981;
+    --text: #f9fafb;
+    --muted: #9ca3af;
+    
+    --bg-color: #111827;
+    --text-color: #f9fafb;
+    --secondary-bg: #1f2937;
+    --accent: #10b981;
   }
 }
- 
+  
 @layer base {
   body {
     margin: 0px;
-    overflow: hidden; /* Hide scrollbars */
+    overflow: hidden;
     cursor: wait;
     background-color: var(--bg-color);
     color: var(--text-color);
