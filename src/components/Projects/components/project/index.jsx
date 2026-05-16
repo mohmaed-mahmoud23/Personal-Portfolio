@@ -4,7 +4,7 @@ import styles from './style.module.scss';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
-export default function index({index, title, src, manageModal, url}) {
+export default function Project({index, title, src, manageModal, url}) {
     const t = useTranslations('Projects');
 
     return (

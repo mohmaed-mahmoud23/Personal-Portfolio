@@ -7,7 +7,7 @@ import Magnetic from '../../common/Magnetic';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
 
-export default function index() {
+export default function Contact() {
     const t = useTranslations('Contact');
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
