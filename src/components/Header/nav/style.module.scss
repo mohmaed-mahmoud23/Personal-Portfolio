@@ -5,7 +5,8 @@
     right: 0;
     top: 0;
     color: var(--text);
-    z-index: 3;
+    z-index: 99;
+    width: clamp(350px, 40vw, 500px);
     .body{
         box-sizing: border-box;
         height: 100%;
@@ -40,8 +41,11 @@
 }
 
 @media (max-width: 768px) {
+    .menu {
+        width: 100%;
+    }
     .menu .body {
-        padding: 60px 30px;
+        padding: 80px 30px;
         
         .nav {
             font-size: 36px;

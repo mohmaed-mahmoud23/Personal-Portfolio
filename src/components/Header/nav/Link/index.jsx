@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { slide, scale } from '../../animation';
 
-export default function Index({data, isActive, setSelectedIndicator}) {
+export default function Index({data, isActive, setSelectedIndicator, setIsActive}) {
   
     const { title, href, index} = data;
   
@@ -15,6 +15,7 @@ export default function Index({data, isActive, setSelectedIndicator}) {
       } else if (!id) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
+      setIsActive(false);
     };
   
     return (

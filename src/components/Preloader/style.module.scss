@@ -1,40 +1,36 @@
 .introduction {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: fixed;
     z-index: 99;
-    background-color: var(--bg-color);
-    overflow: hidden;
-
+    background-color: #141516;
+    top: 0;
+    left: 0;
+    
     svg {
         position: absolute;
         top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
-        path {
-            fill: var(--bg-color);
-        }
+        height: calc(100% + 300px);
+        fill: #141516;
     }
-
+    
     p {
         display: flex;
+        color: white;
+        font-size: clamp(24px, 5vw, 42px);
         align-items: center;
-        color: var(--text-color);
-        font-size: 42px;
         position: absolute;
         z-index: 1;
-
+        
         span {
             display: block;
             width: 10px;
             height: 10px;
-            background-color: var(--accent);
+            background-color: white;
             border-radius: 50%;
             margin-right: 10px;
         }

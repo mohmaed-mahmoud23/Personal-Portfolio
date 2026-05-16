@@ -26,7 +26,7 @@ const navItems = [
   },
 ]
 
-export default function Nav() {
+export default function Nav({setIsActive}) {
 
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
@@ -50,7 +50,8 @@ export default function Nav() {
                         key={index} 
                         data={{...data, index}} 
                         isActive={selectedIndicator == data.href} 
-                        setSelectedIndicator={setSelectedIndicator}>
+                        setSelectedIndicator={setSelectedIndicator}
+                        setIsActive={setIsActive}>
                         </Link>
                       })
                     }

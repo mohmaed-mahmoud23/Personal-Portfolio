@@ -23,11 +23,17 @@
                 flex-wrap: wrap;
                 align-items: center;
                 .imageContainer{
-                    width: clamp(50px, 10vw, 100px);
-                    height: clamp(50px, 10vw, 100px);
+                    width: clamp(100px, 20vw, 200px);
+                    height: clamp(100px, 20vw, 200px);
                     position: relative;
                     border-radius: 50%;
                     overflow: hidden;
+                    transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+                    cursor: pointer;
+
+                    &:hover {
+                        transform: scale(1.15);
+                    }
 
                     img{
                         object-fit: cover;
@@ -139,21 +145,63 @@
 }
 
 @media (max-width: 768px) {
-    .contact .body .title .buttonContainer {
-        position: relative !important;
-        left: auto !important;
-        top: auto !important;
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-    }
-    .contact .body .title svg {
-        display: none; /* Hide the decorative arrow on small screens to prevent overlap */
-    }
-    .contact .body .title h2 {
-        text-align: center;
-    }
-    .contact .body .title span {
-        justify-content: center;
+    .contact .body {
+        padding-top: 40px;
+        .title {
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-bottom: 20px;
+            h2 {
+                font-size: clamp(30px, 8vw, 50px);
+                text-align: center;
+            }
+            span {
+                justify-content: center;
+                .imageContainer {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+            .buttonContainer {
+                position: relative !important;
+                left: auto !important;
+                top: auto !important;
+                margin-top: 40px;
+                display: flex;
+                justify-content: center;
+                .button {
+                    position: relative;
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+            svg {
+                display: none;
+            }
+        }
+        .nav {
+            margin-left: 20px;
+            margin-right: 20px;
+            justify-content: center;
+            gap: 10px;
+        }
+        .info {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 40px;
+            div {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                h3 {
+                    font-size: 14px;
+                }
+                span {
+                    justify-content: center;
+                }
+            }
+        }
     }
 }

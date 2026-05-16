@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @layer base {
@@ -13,34 +14,49 @@ html {
     --accent: #059669;
     --text: #111827;
     --muted: #6b7280;
-    
+
     --bg-color: #f9fafb;
     --text-color: #111827;
     --secondary-bg: #e5e7eb;
     --accent: #059669;
   }
- 
+
   .dark {
     --background: #111827;
     --surface: #1f2937;
     --accent: #10b981;
     --text: #f9fafb;
     --muted: #9ca3af;
-    
+
     --bg-color: #111827;
     --text-color: #f9fafb;
     --secondary-bg: #1f2937;
     --accent: #10b981;
   }
 }
-  
+
 @layer base {
   body {
     margin: 0px;
-    overflow: hidden;
+    overflow-x: clip;
     cursor: wait;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Reset some defaults for responsiveness */
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: block;
+    max-width: 100%;
   }
 }

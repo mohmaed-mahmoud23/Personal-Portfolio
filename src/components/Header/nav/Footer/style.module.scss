@@ -5,3 +5,11 @@
     font-size: 12px;
     gap: 40px;
 }
+
+@media (max-width: 768px) {
+    .footer {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: flex-start;
+    }
+}

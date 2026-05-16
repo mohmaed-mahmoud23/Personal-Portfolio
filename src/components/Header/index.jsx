@@ -22,7 +22,7 @@ export default function Header() {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(button.current, {
-      scrollTrigger: {
+        scrollTrigger: {
         trigger: document.documentElement,
         start: 0,
         end: window.innerHeight,
@@ -34,11 +34,8 @@ export default function Header() {
           });
         },
         onEnterBack: () => {
-          gsap.to(
-            button.current,
-            { scale: 0, duration: 0.25, ease: "power1.out" },
-            setIsActive(false),
-          );
+          gsap.to(button.current, { scale: 0, duration: 0.25, ease: "power1.out" });
+          setIsActive(false);
         },
       },
     });
@@ -87,7 +84,7 @@ export default function Header() {
           ></div>
         </Rounded>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      <AnimatePresence mode="wait">{isActive && <Nav setIsActive={setIsActive} />}</AnimatePresence>
     </>
   );
 }

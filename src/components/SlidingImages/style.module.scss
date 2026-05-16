@@ -6,6 +6,7 @@
     margin-top: 80px;
     background-color: var(--bg-color);
     z-index: 1;
+    overflow: hidden; // Prevent horizontal overflow
     .slider{
         display: flex;
         position: relative;
@@ -32,6 +33,7 @@
         background-color: var(--bg-color);
         position: relative;
         margin-top: 40px;
+        overflow: hidden; // Ensure circle doesn't overflow
         .circle{
             height: 1550%;
             width: 120%;
@@ -47,9 +49,13 @@
 
 @media (max-width: 768px) {
     .slidingImages {
-        margin-top: 60px;
-        .slider .project {
-            height: 40vw;
+        margin-top: 40px;
+        .slider {
+            width: 150vw;
+            left: -25vw;
+            .project {
+                height: 40vw;
+            }
         }
     }
 }

@@ -93,7 +93,7 @@
     transform: scale(0);
     position: fixed;
     right: 0px;
-    z-index: 4;
+    z-index: 100;
 
     .button{
         position: relative;
@@ -149,7 +149,7 @@
 
 @media (max-width: 768px) {
     .header {
-        padding: 15px !important;
+        padding: 20px !important;
         
         .logo {
             .copyright {
@@ -161,17 +161,34 @@
                 margin-left: 0;
                 
                 .codeBy {
-                    font-size: 12px;
+                    font-size: 10px;
                     position: static;
                     transform: none;
                 }
                 .dennis {
-                    font-size: 14px;
+                    font-size: 12px;
                     position: static;
                     padding-left: 0;
                     transform: none;
                 }
             }
+        }
+
+        .nav {
+            display: none; // Hide desktop nav on mobile
+        }
+    }
+
+    .headerButtonContainer {
+        transform: scale(1) !important; // Force show burger on mobile
+        right: 15px;
+        top: 15px;
+        z-index: 100;
+
+        .button {
+            width: 60px;
+            height: 60px;
+            margin: 0;
         }
     }
 }

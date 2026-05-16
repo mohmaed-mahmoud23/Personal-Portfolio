@@ -22,7 +22,7 @@
       position: relative;
       margin: 0px;
       color: white;
-      font-size: clamp(80px, 15vw, 230px);
+      font-size: clamp(32px, 15vw, 230px);
       font-weight: 500;
       padding-right: 50px;
     }
@@ -53,14 +53,20 @@
 
 @media (max-width: 768px) {
     .landing {
-        .description {
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            font-size: 18px;
-        }
         .sliderContainer {
-            top: calc(100vh - 250px);
+            top: calc(100vh - 180px);
+        }
+        .description {
+            top: 25%;
+            left: 20px;
+            right: 20px;
+            transform: none;
+            text-align: left;
+            font-size: 16px;
+            svg {
+                margin-bottom: 40px;
+                transform: scale(1.5);
+            }
         }
     }
 }
