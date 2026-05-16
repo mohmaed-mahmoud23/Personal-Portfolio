@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import styles from './style.module.scss';
 import Image from 'next/image';
@@ -49,13 +49,22 @@ export default function SlidingImages() {
         offset: ["start end", "end start"]
     })
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const x1 = useTransform(scrollYProgress, [0, 1], [0, 150])
     const x2 = useTransform(scrollYProgress, [0, 1], [0, -150])
     const height = useTransform(scrollYProgress, [0, 0.9], [50, 0])
 
     return (
         <div ref={container} className={styles.slidingImages}>
-            <motion.div style={{x: x1}} className={styles.slider}>
+            <motion.div style={{x: isMobile ? 0 : x1}} className={styles.slider}>
                     {
                         slider1.map( (project, index) => {
                             return <div key={index} className={styles.project} style={{backgroundColor: project.color}} >
@@ -69,7 +78,7 @@ export default function SlidingImages() {
                         })
                     }
                 </motion.div>
-                <motion.div style={{x: x2}} className={styles.slider}>
+                <motion.div style={{x: isMobile ? 0 : x2}} className={styles.slider}>
                     {
                         slider2.map( (project, index) => {
                             return <div key={index} className={styles.project} style={{backgroundColor: project.color}} >
