@@ -1,93 +1,341 @@
-.projects{
+.projects {
     display: flex;
     align-items: center;
     padding-left: clamp(20px, 10vw, 200px);
     padding-right: clamp(20px, 10vw, 200px);
     flex-direction: column;
-    margin-top: 120px;
+    margin-top: clamp(60px, 10vw, 120px);
+    margin-bottom: clamp(60px, 10vw, 120px);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 
-    .latestProjectsLabel{
+    .latestProjectsLabel {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 40px;
+        margin-bottom: clamp(40px, 6vw, 80px);
         
-        p{
+        p {
             margin: 0;
             font-size: clamp(14px, 2vw, 18px);
-            font-weight: 500;
+            font-weight: 600;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 4px;
         }
         
-        .underline{
-            width: 60px;
-            height: 2px;
+        .underline {
+            width: 80px;
+            height: 3px;
             background: linear-gradient(90deg, var(--accent), transparent);
             margin-top: 12px;
+            border-radius: 2px;
         }
     }
 
-    .body{
+    .bentoGrid {
         max-width: 1400px;
         width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        grid-auto-flow: row;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 28px;
+    text-decoration: none;
+    color: var(--text-color);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 380px;
+    
+    /* Hardware acceleration for hover animations */
+    will-change: transform, box-shadow, border-color;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+
+    /* Theme-specific glassmorphic styles with dynamic mouse spotlight backdrop */
+    background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(16, 185, 129, 0.08), transparent 40%), rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    .cardHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(16, 185, 129, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+        }
+
+        .arrowIcon {
+            color: var(--muted);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary-bg);
+            border: 1px solid var(--surface);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+        }
+    }
+
+    /* Core Layout splits */
+    .cardContent {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 60px;
-    }
-    
-    .modalContainer{
-        height: 350px;
-        width: 400px;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        background-color: white;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: 3;
-    }
-    
-    .modalSlider{
+        justify-content: space-between;
         height: 100%;
         width: 100%;
-        position: relative;
-        transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        padding: clamp(24px, 3vw, 40px);
+        box-sizing: border-box;
+        z-index: 2;
     }
-    
-    .modal{
+
+    /* Large split layout (Desktop / Tablet) */
+    .largeCardLayout, .largeCardLayoutAlt {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
         height: 100%;
         width: 100%;
+        justify-content: space-between;
+
+        .cardText {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .mockupContainer {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .imageWrapper {
+                width: 100%;
+                height: 240px;
+                position: relative;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+                border: 1px solid var(--surface);
+                
+                /* Completely FLAT and unfiltered for full, bright visibility */
+                transform: translateY(10px);
+                transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                filter: none !important;
+                opacity: 1 !important;
+
+                img {
+                    object-fit: cover;
+                    filter: none !important;
+                }
+            }
+        }
+    }
+
+    /* Small stacked layout */
+    .smallCardLayout {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+
+        .cardText {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+
+        .mockupContainer {
+            width: 100%;
+            height: 160px;
+            position: relative;
+            margin-top: 20px;
+            overflow: hidden;
+            
+            .imageWrapper {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                border: 1px solid var(--surface);
+                
+                /* FLAT, unfiltered and bright */
+                transform: translateY(10px);
+                transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                filter: none !important;
+                opacity: 1 !important;
+
+                img {
+                    object-fit: cover;
+                    filter: none !important;
+                }
+            }
+        }
     }
-    
-    .modal img{
-        height: auto;
-    }
-    
-    .cursor, .cursorLabel{
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background-color: var(--accent);
-        color: white;
-        position: fixed;
-        z-index:3;
+
+    .cardBody {
+        flex-grow: 1;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        font-size: 14px;
-        font-weight: 300;
-        pointer-events: none;
+        margin: 20px 0;
+
+        .projectName {
+            font-size: clamp(22px, 3.5vw, 30px);
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .description {
+            font-size: clamp(14px, 1.8vw, 15px);
+            color: var(--muted);
+            margin: 0;
+            font-weight: 400;
+            line-height: 1.5;
+        }
     }
-    
-    .cursorLabel{
-        background-color: transparent;
+
+    /* Hover State and Glow Effect */
+    &:hover {
+        transform: translateY(-8px) scale(1.015);
+        border-color: var(--accent);
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.08);
+
+        .arrowIcon {
+            transform: translate(2px, -2px);
+            color: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .imageWrapper {
+            transform: translateY(0px) scale(1.03) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18) !important;
+        }
+    }
+}
+
+/* Card Column Spans */
+.colSpan1 {
+    grid-column: span 1;
+}
+
+.colSpan2 {
+    grid-column: span 2;
+}
+
+.colSpan3 {
+    grid-column: span 3;
+}
+
+/* Specific styling for the "Explore More" Card */
+.exploreCard {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.04), rgba(16, 185, 129, 0.02));
+    border: 1px dashed rgba(16, 185, 129, 0.3);
+
+    .cardBody .projectName {
+        color: var(--accent);
+    }
+
+    .exploreIconWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+        height: 140px;
+        
+        .githubGlow {
+            color: var(--muted);
+            transition: color 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    }
+
+    &:hover {
+        border-style: solid;
+        border-color: var(--accent);
+        box-shadow: 0 20px 40px rgba(16, 185, 129, 0.12);
+
+        .exploreIconWrapper .githubGlow {
+            color: var(--accent);
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.4));
+        }
+    }
+}
+
+/* Dark mode overrides */
+:global(.dark) {
+    .card {
+        background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(16, 185, 129, 0.15), transparent 45%), rgba(31, 41, 55, 0.45);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+
+        &:hover {
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+        }
+    }
+
+    .exploreCard {
+        background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(16, 185, 129, 0.15), transparent 45%), rgba(31, 41, 55, 0.3);
+        border: 1px dashed rgba(16, 185, 129, 0.4);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .projects {
+        .bentoGrid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    /* Adjust tablet spans */
+    .colSpan2, .colSpan3 {
+        grid-column: span 2;
+    }
+
+    .card {
+        .largeCardLayout, .largeCardLayoutAlt {
+            gap: 20px;
+            .mockupContainer .imageWrapper {
+                height: 200px;
+            }
+        }
     }
 }
 
@@ -95,16 +343,77 @@
     .projects {
         padding-left: 20px;
         padding-right: 20px;
-        margin-top: 60px;
-        
-        .body {
-            margin-bottom: 40px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        .latestProjectsLabel {
+            margin-bottom: 30px;
+        }
+
+        .bentoGrid {
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
     }
-    .projects .modalContainer,
-    .projects .cursor,
-    .projects .cursorLabel {
-        display: none !important;
+
+    .card {
+        grid-column: span 1 !important;
+        min-height: 420px; /* Taller on mobile to house screenshots beautifully */
+
+        .cardContent {
+            padding: 24px;
+        }
+
+        /* Stack all layouts vertically on mobile, keeping text on top and screenshot at the bottom */
+        .largeCardLayout, .largeCardLayoutAlt, .smallCardLayout {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 15px !important;
+            height: 100% !important;
+
+            .cardText {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .mockupContainer {
+                display: block !important; /* Keep screenshots fully visible on mobile! */
+                width: 100% !important;
+                height: 180px !important;
+                
+                .imageWrapper {
+                    width: 100% !important;
+                    height: 100% !important;
+                    transform: translateY(0px) !important;
+                    border-radius: 12px !important;
+                }
+            }
+        }
+
+        &:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: var(--surface);
+
+            .arrowIcon {
+                transform: none;
+                box-shadow: none;
+            }
+            
+            .imageWrapper {
+                transform: none !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+            }
+        }
+    }
+    
+    .exploreCard {
+        min-height: 240px;
+        
+        .exploreIconWrapper {
+            display: flex;
+            height: 80px;
+            margin-top: 10px;
+        }
     }
 }
-
