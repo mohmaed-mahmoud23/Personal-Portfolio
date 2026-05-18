@@ -6,6 +6,9 @@
     justify-content: center;
     background-color: var(--bg-color);
     position: relative;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
     .body{
         padding-top: 80px;
         width: 100%;
@@ -76,6 +79,7 @@
                 position: absolute;
                 top: 30%;
                 left: calc(100% - 20px);
+                transform: scale(2);
             }
         }
         .nav{
