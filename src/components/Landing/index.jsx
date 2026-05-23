@@ -48,10 +48,10 @@ export default function Home() {
   return (
     <motion.main variants={slideUp} initial="initial" animate="enter" className={styles.landing}>
       <Image
-        src="/images/background.jpg"
+        src="/images/hero-image.png"
         fill={true}
         alt="background"
-        style={{ objectFit: 'cover' }}
+        style={{ objectFit: 'cover', objectPosition: 'top' }}
       />
       <div className={styles.sliderContainer}>
         <div ref={slider} className={styles.slider}>

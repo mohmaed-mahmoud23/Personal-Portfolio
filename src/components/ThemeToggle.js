@@ -6,7 +6,7 @@ import { Moon, Sun } from 'lucide-react';
 
 export function ThemeToggle() {
   const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   React.useEffect(() => {
     setMounted(true);
@@ -14,16 +14,18 @@ export function ThemeToggle() {
 
   if (!mounted) return null;
 
+  const isDark = resolvedTheme === 'dark';
+
   return (
     <button
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className="fixed bottom-5 right-5 z-50 p-3 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110"
       style={{ 
         backgroundColor: 'var(--accent)', 
-        color: theme === 'dark' ? '#111827' : '#f9fafb'
+        color: isDark ? '#111827' : '#f9fafb'
       }}
     >
-      {theme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
+      {isDark ? <Sun size={24} /> : <Moon size={24} />}
     </button>
   );
 }

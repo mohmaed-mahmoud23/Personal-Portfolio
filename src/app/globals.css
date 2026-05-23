@@ -15,10 +15,10 @@ html {
     --text: #111827;
     --muted: #6b7280;
 
+    /* Aliases used by some components */
     --bg-color: #f9fafb;
     --text-color: #111827;
     --secondary-bg: #e5e7eb;
-    --accent: #059669;
   }
 
   .dark {
@@ -28,10 +28,10 @@ html {
     --text: #f9fafb;
     --muted: #9ca3af;
 
+    /* Aliases used by some components */
     --bg-color: #111827;
     --text-color: #f9fafb;
     --secondary-bg: #1f2937;
-    --accent: #10b981;
   }
 }
 
