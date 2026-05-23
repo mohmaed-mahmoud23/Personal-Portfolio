@@ -1,0 +1,255 @@
+.testimonialsSection {
+    padding-top: clamp(60px, 8vw, 120px);
+    padding-bottom: clamp(60px, 8vw, 120px);
+    margin-left: clamp(20px, 10vw, 200px);
+    margin-right: clamp(20px, 10vw, 200px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 6vw, 80px);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .sparkleIcon {
+            color: #8f55fd;
+            /* Purple star icon */
+            animation: rotateSparkle 8s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            font-size: clamp(32px, 5vw, 60px);
+            font-weight: 600;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+
+            .textWhite {
+                color: var(--text-color);
+            }
+
+            .textPurple {
+                color: #8f55fd;
+            }
+        }
+    }
+
+    .swiperContainer {
+        width: 100%;
+        position: relative;
+        padding-bottom: 50px; // space for pagination dots
+    }
+
+    /* Nested :global blocks to ensure CSS modules are pure */
+    :global {
+        .swiper-pagination-bullet {
+            background: var(--muted) !important;
+            opacity: 0.3;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s ease;
+
+            &-active {
+                background: #8f55fd !important;
+                opacity: 1;
+                width: 24px;
+                border-radius: 4px;
+            }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: var(--text-color) !important;
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--surface);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            &::after {
+                font-size: 16px !important;
+                font-weight: bold;
+            }
+
+            &:hover {
+                background-color: #8f55fd;
+                border-color: #8f55fd;
+                color: #ffffff !important;
+                transform: scale(1.05);
+            }
+        }
+
+        .swiper-button-prev {
+            left: -60px !important;
+        }
+
+        .swiper-button-next {
+            right: -60px !important;
+        }
+    }
+}
+
+.testimonialCard {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--surface);
+    border-radius: 20px;
+    padding: clamp(20px, 3vw, 32px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: #8f55fd;
+        box-shadow: 0 15px 30px rgba(143, 85, 253, 0.08);
+
+        .imageContainer img {
+            transform: scale(1.02);
+        }
+    }
+
+    .cardHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--surface);
+        padding-bottom: 16px;
+
+        .clientMeta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .clientName {
+                font-size: 18px;
+                font-weight: 600;
+                margin: 0;
+                color: var(--text-color);
+            }
+
+            .serviceName {
+                font-size: 14px;
+                color: var(--muted);
+                margin: 0;
+            }
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+        }
+    }
+
+    .imageContainer {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        background-color: #ffffff;
+        border: 1px solid var(--surface);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+    }
+}
+
+@keyframes rotateSparkle {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+    .testimonialsSection {
+        :global {
+            .swiper-button-prev {
+                left: -30px !important;
+            }
+
+            .swiper-button-next {
+                right: -30px !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .testimonialsSection {
+        :global {
+            .swiper-button-prev {
+                left: 10px !important;
+            }
+
+            .swiper-button-next {
+                right: 10px !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonialsSection {
+        gap: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        .swiperContainer {
+            padding-bottom: 40px;
+        }
+
+        :global {
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                display: none !important;
+            }
+        }
+    }
+
+    .testimonialCard {
+        padding: 16px;
+        gap: 16px;
+
+        .cardHeader {
+            padding-bottom: 12px;
+
+            .clientMeta {
+                .clientName {
+                    font-size: 16px;
+                }
+
+                .serviceName {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

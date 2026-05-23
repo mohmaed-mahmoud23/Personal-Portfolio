@@ -8,6 +8,7 @@ import Projects from '../../components/Projects';
 import Description from '../../components/Description';
 import SlidingImages from '../../components/SlidingImages';
 import MyStack from '../../components/MyStack';
+import Testimonials from '../../components/Testimonials';
 import Contact from '../../components/Contact';
 
 export default function Home() {
@@ -39,7 +40,9 @@ export default function Home() {
       <Projects />
       <SlidingImages />
       <MyStack />
+      <Testimonials />
       <Contact />
     </main>
   )
 }
+
