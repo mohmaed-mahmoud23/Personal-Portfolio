@@ -13,24 +13,47 @@ const projects = [
   {
     title: "Habib Academy",
     categoryKey: "fullStack",
-    description: "An advanced academic learning management system with seamless payment integration and interactive dashboards.",
+    description:
+      "A complete educational platform built with Next.js and .NET, featuring course management, student enrollment, authentication, and interactive learning dashboards.",
     image: "image (350).png",
-    url: "https://academy-project-d1j6.vercel.app/"
+    url: "https://academy-project-d1j6.vercel.app/",
   },
-  {
-    title: "TechMart",
-    categoryKey: "fullStack",
-    description: "A highly scalable modern e-commerce storefront with optimized image assets and lighting-fast rendering.",
-    image: "image (3450).png",
-    url: "https://ecommerce-nextjs-and-nestjs.vercel.app/"
-  },
+
   {
     title: "Paint Booking",
     categoryKey: "fullStack",
-    description: "A comprehensive graduation service booking and client scheduling engine for custom painting workshops.",
+    description:
+      "A furniture painting booking platform built with Next.js and NestJS, allowing customers to schedule services, manage requests, and track project progress.",
     image: "image (30).png",
-    url: "https://gradute-progect-65fk.vercel.app/"
-  }
+    url: "https://gradute-progect-65fk.vercel.app/",
+  },
+
+  {
+    title: "TechMart",
+    categoryKey: "fullStack",
+    description:
+      "A modern e-commerce platform with PayPal and Vodafone Cash payment integration, featuring product management, secure checkout, and optimized shopping experiences.",
+    image: "image (3450).png",
+    url: "https://ecommerce-nextjs-and-nestjs.vercel.app/",
+  },
+
+  {
+    title: "Auto Store",
+    categoryKey: "frontend",
+    description:
+      "A modern automotive showroom website built with HTML, CSS, JavaScript, and Bootstrap, featuring responsive layouts, vehicle showcases, smooth user interactions, and a professional browsing experience.",
+    image: "image (9890).png",
+    url: "https://auto-store-landing-page.vercel.app/",
+  },
+
+  {
+    title: "Super Pro",
+    categoryKey: "frontend",
+    description:
+      "A premium business landing page built with HTML, CSS, JavaScript, and Bootstrap, designed with modern UI principles, responsive layouts, smooth animations, and high-performance front-end architecture.",
+    image: "image (45).png",
+    url: "https://super-pro-frontend.vercel.app/",
+  },
 ];
 
 export default function Projects() {
